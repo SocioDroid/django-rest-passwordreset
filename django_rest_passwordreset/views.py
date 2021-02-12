@@ -111,7 +111,7 @@ class ResetPasswordRequestToken(GenericAPIView):
         clear_expired(now_minus_expiry_time)
 
         # find a user by email address (case insensitive search)
-        users = User.objects.filter(**{'{}__iexact'.format(get_password_reset_lookup_field()): email})
+        users = User.objects.filter(email=email})
 
         active_user_found = False
 
